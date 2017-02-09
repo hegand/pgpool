@@ -17,7 +17,7 @@ RUN apk --update --no-cache add libpq=${PG_VERSION} postgresql-dev=${PG_VERSION}
                 --sysconfdir=/etc \
                 --mandir=/usr/share/man \
                 --infodir=/usr/share/info \ 
-		--with-memcached=/usr/bin && \
+		--with-memcached=/usr/include/libmemcached && \
     make && \
     make install && \
     rm -rf /tmp/pgpool-II-${PGPOOL_VERSION} && \
