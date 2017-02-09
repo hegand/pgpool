@@ -1,8 +1,8 @@
-FROM hegand/alpine:3.4
+FROM hegand/alpine:3.5
 
-ENV PGPOOL_VERSION 3.5.5
+ENV PGPOOL_VERSION 3.6.1
 
-ENV PG_VERSION 9.5.4-r0
+ENV PG_VERSION 9.6.1-r0
 
 ENV LANG en_US.utf8
     
