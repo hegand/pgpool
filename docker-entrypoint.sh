@@ -25,6 +25,14 @@ if [ "$1" = 'pgpool' ]; then
   IP_ADDR=$(ip addr show eth0 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
   sed -i "s:listen_addresses = '.*':listen_addresses = '$IP_ADDR':g" /etc/pgpool.conf
 
+  # clear any previous socket files if exist
+  if [ -s "/var/run/pgpool/.s.PGSQL.9999" ]; then
+    rm -f /var/run/pgpool/.s.PGSQL.9999
+  fi
+  if [ -s "/tmp/.s.PGSQL.9898" ]; then
+     rm -f /tmp/.s.PGSQL.9898
+  fi
+ 
   gosu postgres "$@"
   
 fi
